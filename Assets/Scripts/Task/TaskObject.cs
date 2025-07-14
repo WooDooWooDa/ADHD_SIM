@@ -1,0 +1,63 @@
+﻿using System;
+using UnityEngine;
+
+namespace DefaultNamespace
+{
+    public class TaskObject : MonoBehaviour, IInteractable
+    {
+        public TaskDetails Details;
+        public TaskType taskType;
+        public TaskPriority taskPriority;
+
+        public TaskState taskState
+        {
+            get => _state;
+            set
+            {
+                _state = value;
+                OnStateChanged?.Invoke(value);
+            }
+        }
+        private TaskState _state;
+        public Action<TaskState> OnStateChanged;
+        
+        private float _noticedTime;
+        private TaskList _list;
+
+        private void Awake()
+        {
+            _list = FindFirstObjectByType<TaskList>();
+        }
+
+        public void TryNotice()
+        {
+            if (_state is not TaskState.UnNoticed) return;
+            
+            _noticedTime += Time.deltaTime;
+
+            if (!TaskHelper.IsNoticedYet(_noticedTime, taskPriority)) return;
+            
+            //Noticed
+            taskState = TaskState.Noticed;
+            OnStateChanged?.Invoke(taskState);
+            _list.AddTask(this);
+        }
+
+        public void Complete()
+        {
+            if (_state is not (TaskState.UnDone or TaskState.OnGoing)) return;
+
+            taskState = TaskState.Done;
+        }
+
+        public void Interact()
+        {
+            if (_state is not (TaskState.UnDone or TaskState.OnGoing)) return;
+        }
+
+        public bool CanInteractWith()
+        {
+            return _state is (TaskState.UnDone or TaskState.OnGoing);
+        }
+    }
+}
