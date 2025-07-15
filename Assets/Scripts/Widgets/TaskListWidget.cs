@@ -9,7 +9,7 @@ public class TaskListWidget : MonoBehaviour
     
     private TaskList _list;
     
-    void Start()
+    void Awake()
     {
         _list = FindFirstObjectByType<TaskList>();
         _list.OnListUpdated += OnListUpdated;

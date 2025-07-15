@@ -116,6 +116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c415431d459b7e9449a6dad3a241a0bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  letsDoItTransform: {fileID: 4191529537706672034}
+  progressTransform: {fileID: 2500655252272839557}
+  progressSlider: {fileID: 4624314336758141694}
 --- !u!1 &5544123949649130669
 GameObject:
   m_ObjectHideFlags: 0

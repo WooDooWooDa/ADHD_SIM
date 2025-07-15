@@ -13,8 +13,9 @@ public class Noticer : MonoBehaviour
         var ray = new Ray(camera.transform.position, camera.transform.forward);
         RaycastHit hit;
         
-        if (Physics.SphereCast(ray, detectionRange, out hit, detectionDistance, taskLayer))
+        if (Physics.SphereCast(ray, detectionRange, out hit, detectionDistance))
         {
+            print(hit.collider.gameObject.name);
             if (hit.collider.CompareTag("TaskObject"))
             {
                 hit.transform.gameObject.GetComponent<TaskObject>().TryNotice();
@@ -24,8 +25,8 @@ public class Noticer : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(camera.transform.position, detectionRange);
-        Gizmos.DrawWireSphere(camera.transform.position + camera.transform.forward * detectionDistance, detectionRange);
-        Gizmos.DrawLine(camera.transform.position, camera.transform.position + camera.transform.forward * detectionDistance);
+        //Gizmos.DrawWireSphere(camera.transform.position, detectionRange);
+        //Gizmos.DrawWireSphere(camera.transform.position + camera.transform.forward * detectionDistance, detectionRange);
+        //Gizmos.DrawLine(camera.transform.position, camera.transform.position + camera.transform.forward * detectionDistance);
     }
 }

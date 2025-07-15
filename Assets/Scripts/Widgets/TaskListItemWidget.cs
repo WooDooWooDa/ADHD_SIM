@@ -22,15 +22,10 @@ public class TaskListItemWidget : MonoBehaviour
             //set as not first/focus task
         }
         taskName2.text = taskObject.Details.Name;
-        taskObject.OnStateChanged += OnTaskStateChanged;
-    }
-
-    private void OnTaskStateChanged(TaskState state)
-    {
-        if (state == TaskState.Done)
+        if (taskObject.taskState == TaskState.Done)
         {
-            unDoneTransform.gameObject.SetActive(false);
             doneTransform.gameObject.SetActive(true);
+            unDoneTransform.gameObject.SetActive(false);
         }
     }
 }

@@ -8,6 +8,7 @@ namespace DefaultNamespace
         public TaskDetails Details;
         public TaskType taskType;
         public TaskPriority taskPriority;
+        public float timeOfInteraction { get; set; }
 
         public TaskState taskState
         {
@@ -28,6 +29,7 @@ namespace DefaultNamespace
         private void Awake()
         {
             _list = FindFirstObjectByType<TaskList>();
+            timeOfInteraction = Details.TimeToComplete;
         }
 
         public void TryNotice()
@@ -51,19 +53,26 @@ namespace DefaultNamespace
             taskState = TaskState.Done;
             taskPriority =  TaskPriority.Done;
             OnDone?.Invoke(this);
+            var parts = Instantiate(Resources.Load<ParticleSystem>("ParticlesSystem/TaskCompleteParticleSystem"), transform);
+            parts.Play();
+            Destroy(parts.gameObject, 5);
+        }
+
+        public bool StartInteraction()
+        {
+            if (_state is not (TaskState.UnDone or TaskState.OnGoing)) return false;
+            
+            return true;
         }
 
         public void Interact()
         {
-            if (_state is not (TaskState.UnDone or TaskState.OnGoing)) return;
-            
             //basic task just completes it when interacted
             Complete();
         }
 
         public bool CanInteractWith()
         {
-            return true; //todo FOR NOW
             return _state is (TaskState.UnDone or TaskState.OnGoing) && _list.IfFocusTask(this);
         }
     }

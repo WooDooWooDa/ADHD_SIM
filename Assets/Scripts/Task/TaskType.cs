@@ -2,6 +2,8 @@
 {
     public enum TaskType
     {
-        HoldToComplete
+        HoldToComplete,
+        PickUpObjects,
+        ActivateSomething
     }
 }
