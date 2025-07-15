@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         
         _moveDirection = forward * _moveDirection.y + right * _moveDirection.x;
         
-        if (!Controller.isGrounded) _moveDirection.y += Physics.gravity.y * speed * Time.deltaTime;
+        if (!Controller.isGrounded) _moveDirection.y += Physics.gravity.y;
         
         Controller.Move(_moveDirection * (speed * Time.deltaTime));
     }

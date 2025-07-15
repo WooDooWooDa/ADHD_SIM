@@ -32,7 +32,7 @@ namespace DefaultNamespace
             timeOfInteraction = Details.TimeToComplete;
         }
 
-        public void TryNotice()
+        public virtual void TryNotice()
         {
             if (_state is not TaskState.UnNoticed) return;
             
@@ -41,9 +41,7 @@ namespace DefaultNamespace
             if (!TaskHelper.IsNoticedYet(_noticedTime, taskPriority)) return;
             
             //Noticed
-            taskState = TaskState.Noticed;
-            OnStateChanged?.Invoke(taskState);
-            _list.AddTaskToDo(this);
+            Notice();
         }
 
         public void Complete()
@@ -53,6 +51,7 @@ namespace DefaultNamespace
             taskState = TaskState.Done;
             taskPriority =  TaskPriority.Done;
             OnDone?.Invoke(this);
+            //Particles
             var parts = Instantiate(Resources.Load<ParticleSystem>("ParticlesSystem/TaskCompleteParticleSystem"), transform);
             parts.Play();
             Destroy(parts.gameObject, 5);
@@ -60,20 +59,23 @@ namespace DefaultNamespace
 
         public bool StartInteraction()
         {
-            if (_state is not (TaskState.UnDone or TaskState.OnGoing)) return false;
+            if (_state is not TaskState.UnDone) return false;
             
             return true;
         }
 
-        public void Interact()
+        public virtual void Interact() { }
+
+        public virtual bool CanInteractWith()
         {
-            //basic task just completes it when interacted
-            Complete();
+            return _state is (TaskState.UnDone) && _list.IfFocusTask(this);
         }
 
-        public bool CanInteractWith()
+        protected void Notice()
         {
-            return _state is (TaskState.UnDone or TaskState.OnGoing) && _list.IfFocusTask(this);
-        }
+            taskState = TaskState.Noticed;
+            OnStateChanged?.Invoke(taskState);
+            _list.AddTaskToDo(this);
+        } 
     }
 }

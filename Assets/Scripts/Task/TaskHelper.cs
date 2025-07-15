@@ -13,8 +13,9 @@ namespace DefaultNamespace
         {
             return priority switch
             {
-                TaskPriority.VeryLow => 1f,
-                TaskPriority.Low or TaskPriority.Medium or TaskPriority.High or TaskPriority.VeryHigh => 1f,
+                TaskPriority.VeryLow => 0.75f,
+                TaskPriority.Low or TaskPriority.Medium or TaskPriority.High => 0.5f,
+                TaskPriority.VeryHigh => 0.25f,
                 _ => throw new ArgumentOutOfRangeException(nameof(priority), priority, null)
             };
         }

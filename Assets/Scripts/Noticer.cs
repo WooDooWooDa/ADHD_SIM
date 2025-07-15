@@ -5,8 +5,8 @@ public class Noticer : MonoBehaviour
 {
     public LayerMask taskLayer;
     public new Camera camera;
-    public float detectionDistance = 10f;
-    public float detectionRange = 1f;
+    public float detectionDistance = 12f;
+    public float detectionRange = 1.2f;
     
     void Update()
     {
@@ -15,7 +15,6 @@ public class Noticer : MonoBehaviour
         
         if (Physics.SphereCast(ray, detectionRange, out hit, detectionDistance))
         {
-            print(hit.collider.gameObject.name);
             if (hit.collider.CompareTag("TaskObject"))
             {
                 hit.transform.gameObject.GetComponent<TaskObject>().TryNotice();

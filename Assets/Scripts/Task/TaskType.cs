@@ -4,6 +4,7 @@
     {
         HoldToComplete,
         PickUpObjects,
-        ActivateSomething
+        ActivateSomething,
+        Steps
     }
 }

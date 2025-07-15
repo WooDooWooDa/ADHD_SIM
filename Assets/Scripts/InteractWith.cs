@@ -49,7 +49,7 @@ namespace DefaultNamespace
 
         private void TryInteract(InputAction.CallbackContext callbackContext)
         {
-            if (_interactable is not null && _interactable.StartInteraction())
+            if (_interactable is not null && _interactable.CanInteractWith() && _interactable.StartInteraction())
                 _interactCoroutine = StartCoroutine(Interaction(_interactable.timeOfInteraction));
         }
 
