@@ -20,6 +20,7 @@ namespace DefaultNamespace
         }
         private TaskState _state;
         public Action<TaskState> OnStateChanged;
+        public Action<TaskObject> OnDone;
         
         private float _noticedTime;
         private TaskList _list;
@@ -40,7 +41,7 @@ namespace DefaultNamespace
             //Noticed
             taskState = TaskState.Noticed;
             OnStateChanged?.Invoke(taskState);
-            _list.AddTask(this);
+            _list.AddTaskToDo(this);
         }
 
         public void Complete()
@@ -48,16 +49,22 @@ namespace DefaultNamespace
             if (_state is not (TaskState.UnDone or TaskState.OnGoing)) return;
 
             taskState = TaskState.Done;
+            taskPriority =  TaskPriority.Done;
+            OnDone?.Invoke(this);
         }
 
         public void Interact()
         {
             if (_state is not (TaskState.UnDone or TaskState.OnGoing)) return;
+            
+            //basic task just completes it when interacted
+            Complete();
         }
 
         public bool CanInteractWith()
         {
-            return _state is (TaskState.UnDone or TaskState.OnGoing);
+            return true; //todo FOR NOW
+            return _state is (TaskState.UnDone or TaskState.OnGoing) && _list.IfFocusTask(this);
         }
     }
 }

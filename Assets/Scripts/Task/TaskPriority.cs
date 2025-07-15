@@ -7,6 +7,7 @@
         Medium,
         Low,
         VeryLow,
-        Original            // The one task that must be done is the least prio
+        Original,            // The one task that must be done is the least prio
+        Done                 // Bottom of task list
     }
 }

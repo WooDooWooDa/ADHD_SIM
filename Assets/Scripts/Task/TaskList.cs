@@ -1,32 +1,44 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace DefaultNamespace
 {
     public class TaskList : MonoBehaviour
     {
-        public List<Task> Tasks = new();
+        public List<TaskObject> ToDoTasks = new();
+        public Action<List<TaskObject>> OnListUpdated;
 
-        public void AddTask(TaskObject taskObject)
+        public void AddTaskToDo(TaskObject taskObject)
         {
             //add to list
-            var newTask = new Task
-            {
-                linkedTaskObject = taskObject
-            };
-            Tasks.Insert(GetIndexOfPriority(taskObject), newTask);
-            print(Tasks[0]);
-            //...
+            ToDoTasks.Insert(GetIndexOfPriority(taskObject), taskObject);
             //mark as "ready to be done"
             taskObject.taskState = TaskState.UnDone;
+            taskObject.OnDone += OnTaskDone;
+            
+            OnListUpdated?.Invoke(ToDoTasks);
+        }
+
+        public bool IfFocusTask(TaskObject taskObject)
+        {
+            return ToDoTasks[0] == taskObject;
+        }
+
+        private void OnTaskDone(TaskObject taskObject)
+        {
+            //place it at the end of the list
+            ToDoTasks.Remove(taskObject);
+            ToDoTasks.Add(taskObject);
+            OnListUpdated?.Invoke(ToDoTasks);
         }
 
         private int GetIndexOfPriority(TaskObject taskObject)
         {
             var insertIndex = 0;
-            for (var i = 0; i < Tasks.Count; i++)
+            for (var i = 0; i < ToDoTasks.Count; i++)
             {
-                var currentPriority = Tasks[i].linkedTaskObject.taskPriority;
+                var currentPriority = ToDoTasks[i].taskPriority;
 
                 if (currentPriority > taskObject.taskPriority)
                 {

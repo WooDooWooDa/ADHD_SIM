@@ -9,7 +9,6 @@ namespace DefaultNamespace
         public new Camera camera;
         public float detectionDistance = 2f;
 
-        public InputActionAsset actionAsset;
         private InputAction _interactAction;
         private IInteractable _interactable;
 
@@ -30,7 +29,6 @@ namespace DefaultNamespace
                 {
                     //Show interact widget
                     print(_interactable);
-                    //interactable.Interact(); // or whatever your method is
                 }
             }
         }
