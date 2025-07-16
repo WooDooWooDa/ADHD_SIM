@@ -51,10 +51,7 @@ namespace DefaultNamespace
             taskState = TaskState.Done;
             taskPriority =  TaskPriority.Done;
             OnDone?.Invoke(this);
-            //Particles
-            var parts = Instantiate(Resources.Load<ParticleSystem>("ParticlesSystem/TaskCompleteParticleSystem"), transform);
-            parts.Play();
-            Destroy(parts.gameObject, 5);
+            Done();
         }
 
         public bool StartInteraction()
@@ -69,6 +66,14 @@ namespace DefaultNamespace
         public virtual bool CanInteractWith()
         {
             return _state is (TaskState.UnDone) && _list.IfFocusTask(this);
+        }
+
+        protected virtual void Done()
+        {
+            //Particles
+            var parts = Instantiate(Resources.Load<ParticleSystem>("ParticlesSystem/TaskCompleteParticleSystem"), transform);
+            parts.Play();
+            Destroy(parts.gameObject, 5);
         }
 
         protected void Notice()

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9001141207193545434}
   - component: {fileID: 2344398785706708401}
   - component: {fileID: 7958815103314817797}
-  - component: {fileID: 6713289018175365274}
+  - component: {fileID: 5038215065662757346}
   m_Layer: 6
   m_Name: Broom
   m_TagString: TaskObject
@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8344243258810162896}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.34895378, y: 0.5594414, z: 0.680332, w: 0.32000786}
+  m_LocalRotation: {x: -0.34895268, y: 0.55944496, z: 0.6803297, w: 0.3200078}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 35, y: 35, z: 35}
   m_ConstrainProportionsScale: 1
@@ -157,9 +157,9 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.002, y: 0.002, z: 0.05326667}
-  m_Center: {x: -7.606473e-10, y: 0.0009262741, z: 0.02401104}
---- !u!114 &6713289018175365274
+  m_Size: {x: 0.015688581, y: 0.0019999999, z: 0.053266663}
+  m_Center: {x: -0.000014710755, y: 0.0009263593, z: 0.024011038}
+--- !u!114 &5038215065662757346
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,13 +168,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8344243258810162896}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1dfbbc437694936b9610a2db4572254, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d8ba29f1b3b4f50917c76f77e0a115c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Details:
     Name: Broom the floor
     Description: 
     Thoughts: 
-    TimeToComplete: 5
+    TimeToComplete: 2
   taskType: 0
   taskPriority: 1

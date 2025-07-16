@@ -31,12 +31,12 @@ namespace DefaultNamespace
         
             if (Physics.Raycast(ray, out RaycastHit hitResult, detectionDistance))
             {
-                _interactable = hitResult.transform.GetComponent<IInteractable>();
+                hitResult.transform.TryGetComponent(out _interactable);
                 if (_interactable == null)
                 {
                     StopInteract();
                 }
-                else if (_interactable != null && _interactable.CanInteractWith())
+                if (_interactable != null && _interactable.CanInteractWith())
                 {
                     _interactWidget.Show();
                 }

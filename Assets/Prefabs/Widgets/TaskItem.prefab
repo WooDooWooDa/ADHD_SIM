@@ -295,6 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskName: {fileID: 4108544294875853171}
+  unCheckIcon: {fileID: 0}
   taskName2: {fileID: 6700488255217807617}
   unDoneTransform: {fileID: 5156922473676844579}
   doneTransform: {fileID: 2962931499359077286}
@@ -565,7 +566,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Vaccum the floor
+  m_text: Put away clothes, again
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: df0351fbdecbcfe4593feac0b49a68b0, type: 2}
   m_sharedMaterial: {fileID: -7577317752080862072, guid: df0351fbdecbcfe4593feac0b49a68b0, type: 2}
@@ -595,8 +596,8 @@ MonoBehaviour:
   m_fontSize: 20
   m_fontSizeBase: 20
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 16
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
@@ -701,7 +702,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Vaccum the floor
+  m_text: Put away clothes, again
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: df0351fbdecbcfe4593feac0b49a68b0, type: 2}
   m_sharedMaterial: {fileID: -7577317752080862072, guid: df0351fbdecbcfe4593feac0b49a68b0, type: 2}
@@ -728,11 +729,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
+  m_fontSize: 19.05
   m_fontSizeBase: 20
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 16
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1

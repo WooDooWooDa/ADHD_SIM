@@ -17,7 +17,7 @@
             Complete();
             
             //enable next step
-            nextTask.canInteract = true;
+            if (nextTask is not null) nextTask.canInteract = true;
             canInteract = false;
             //nextTask.Notice();            //maybe not
         }
