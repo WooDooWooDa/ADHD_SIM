@@ -1,3 +1,4 @@
+using System;
 using DefaultNamespace.Widgets;
 using TMPro;
 using UnityEngine;
@@ -21,6 +22,14 @@ public class InteractWidget : Widget
         }
     }
     private bool _isInteracting;
+
+    protected override void Start()
+    {
+        base.Start();
+        //Hide it first!
+        _isVisible = true;
+        Hide();
+    }
 
     public void UpdateInteractText(string text)
     {

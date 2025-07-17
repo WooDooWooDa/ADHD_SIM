@@ -1,13 +1,23 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
 {
     public Camera PlayerCamera;
     public CharacterController Controller;
+    public AudioSource footSource;
+    public AudioClip[] footClips;
     public InputActionAsset actionAsset;
+
+    public float _footStepTimeThreshold = 0.5f;
+    private float _footStepTime = 0f;
     
+    public bool canMove
+    {
+        get => _canMove; set => _canMove = value; 
+    }
     public float speed = 5f;
     public float lookSpeed = 0.1f;
 
@@ -18,7 +28,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 _lookAmt;
     private float _rotationX = 0;
     private float _xRotationLimit = 85f;
-    private bool _canMove = true;
+    private bool _canMove = false;
     
     public void OnEnable()
     {
@@ -57,6 +67,21 @@ public class PlayerController : MonoBehaviour
         var right = PlayerCamera.transform.right;
         
         _moveDirection = forward * _moveDirection.y + right * _moveDirection.x;
+
+        if (_moveDirection != Vector3.zero)
+        {
+            _footStepTime += Time.deltaTime;
+            if (_footStepTime >= _footStepTimeThreshold)
+            {
+                _footStepTime = 0f;
+                footSource.clip = footClips[Random.Range(0,footClips.Length)];
+                footSource.Play();
+            }
+        }
+        else
+        {
+            _footStepTime = 0f;
+        }
         
         if (!Controller.isGrounded) _moveDirection.y += Physics.gravity.y;
         

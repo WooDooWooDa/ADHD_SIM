@@ -18,7 +18,6 @@ namespace DefaultNamespace
         private void Start()
         {
             timeOfInteraction = 0.5f;
-            interactionText = "Did I find the thing?";
         }
 
         public bool StartInteraction()
@@ -43,6 +42,7 @@ namespace DefaultNamespace
         public void Register(FindObjectsTask findObjectsTask)
         {
             _task = findObjectsTask;
+            interactionText = _task.interactionText;
             _list = FindFirstObjectByType<TaskList>();
             _subObjectFound += findObjectsTask.SubObjectFound;
         }

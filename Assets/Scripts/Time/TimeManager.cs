@@ -5,8 +5,8 @@ public class TimeManager : MonoBehaviour
 {
     public float hour => _hour;
     public float minute => _minute;
-    public string timeString => _hour.ToString("00") + ":" + _minute.ToString("00");
-    
+    public string timeString => _hour.ToString("00") + "h" + _minute.ToString("00");
+    public bool timeIsTicking = true;
     public Action<float, float> TimeChanged;
     public Action<float> MinutesAdded;          
     
@@ -23,6 +23,8 @@ public class TimeManager : MonoBehaviour
     
     void Update()
     {
+        if (!timeIsTicking) return;
+        
         _day += Time.deltaTime / RealSecondsPerInGameDay;
         var dayNorm = dayNormalized;
         
@@ -38,6 +40,8 @@ public class TimeManager : MonoBehaviour
     public void SetTimeOfDay(float hours, float minutes)
     {
         _day = (hours + (minutes / MinutePerHour)) / HourPerDay;
+        _hour = Mathf.Floor((dayNormalized) * HourPerDay);
+        _minute = Mathf.Floor((((dayNormalized) * HourPerDay) % 1f) * MinutePerHour);
         TimeChanged?.Invoke(_hour, _minute);
     }
 

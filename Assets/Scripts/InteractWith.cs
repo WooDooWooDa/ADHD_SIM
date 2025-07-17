@@ -62,16 +62,23 @@ namespace DefaultNamespace
 
         private IEnumerator Interaction(float time)
         {
-            var elapsed = 0f;
-            while (elapsed <= time)
+            if (time == 0f)
             {
-                elapsed += Time.deltaTime;
-                _interactWidget.UpdateInteractProgress(time,  elapsed);
-                _interactWidget.isInteracting = true;
-                yield return null;
+                _interactable?.Interact();
             }
-            _interactable?.Interact();
-            StopInteract();
+            else
+            {
+                var elapsed = 0f;
+                while (elapsed <= time)
+                {
+                    elapsed += Time.deltaTime;
+                    _interactWidget.UpdateInteractProgress(time,  elapsed);
+                    _interactWidget.isInteracting = true;
+                    yield return null;
+                }
+                _interactable?.Interact();
+                StopInteract();
+            }
         }
 
         private void StopInteract()

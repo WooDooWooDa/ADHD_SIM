@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using DefaultNamespace;
+using DefaultNamespace.Widgets;
 using UnityEngine;
 
-public class TaskListWidget : MonoBehaviour
+public class TaskListWidget : Widget
 {
     public TaskListItemWidget ListItemPrefab;
     public Transform ListParentTransform;
@@ -17,6 +18,7 @@ public class TaskListWidget : MonoBehaviour
 
     private void OnListUpdated(List<TaskObject> list)
     {
+        //ShowFor(5f);  //Annoying not to know whats next
         for (var i = 0; i < ListParentTransform.childCount; i++) {
             Destroy(ListParentTransform.GetChild(i).gameObject);
         }
@@ -28,6 +30,5 @@ public class TaskListWidget : MonoBehaviour
             task.Init(taskObject, first);
             first = false;
         }
-        
     }
 }

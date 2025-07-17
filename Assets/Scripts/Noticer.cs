@@ -3,13 +3,15 @@ using UnityEngine;
 
 public class Noticer : MonoBehaviour
 {
-    public LayerMask taskLayer;
+    public bool canDetect = false;
     public new Camera camera;
     public float detectionDistance = 12f;
     public float detectionRange = 1.2f;
     
     void Update()
     {
+        if (!canDetect) return;
+        
         var ray = new Ray(camera.transform.position, camera.transform.forward);
         RaycastHit hit;
         

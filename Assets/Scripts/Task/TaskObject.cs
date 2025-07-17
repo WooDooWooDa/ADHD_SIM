@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
+    [RequireComponent(typeof(AudioSource))]
     public class TaskObject : MonoBehaviour, IInteractable
     {
         public TaskDetails Details;
@@ -79,6 +80,9 @@ namespace DefaultNamespace
             
             //Add time
             FindFirstObjectByType<TimeManager>().AddMinutes(Details.MinutesAdded);
+            
+            //Play sound
+            GetComponent<AudioSource>().Play();
         }
 
         protected virtual void Notice()
@@ -91,6 +95,10 @@ namespace DefaultNamespace
             var outline = GetComponentInParent<Outline>();
             if (outline)
                 LeanTween.value(gameObject, (float v) => outline.OutlineWidth = v, 0f, 20f, 0.5f).setLoopPingPong(1);
+            
+            //Thoughts
+            var widget = FindFirstObjectByType<ThoughtsWidget>(FindObjectsInactive.Include);
+            widget.ShowTextFor(Details.Thoughts, 5f);
         } 
     }
 }
