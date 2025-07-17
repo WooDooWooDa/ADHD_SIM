@@ -8,6 +8,7 @@ namespace DefaultNamespace
     {
         public bool taskNoticed = false;
         public bool objectFound = false;
+        public bool deactivateOnFound = false;
         private Action _subObjectFound;
         private FindObjectsTask _task;
         private TaskList _list;
@@ -16,7 +17,7 @@ namespace DefaultNamespace
 
         private void Start()
         {
-            timeOfInteraction = 1f;
+            timeOfInteraction = 0.5f;
             interactionText = "Did I find the thing?";
         }
 
@@ -28,6 +29,9 @@ namespace DefaultNamespace
         public void Interact()
         {
             objectFound = true;
+            if (deactivateOnFound)
+                gameObject.SetActive(false);
+            
             _subObjectFound?.Invoke();
         }
 

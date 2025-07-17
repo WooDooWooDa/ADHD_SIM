@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class FoldedClothesTask : StepsTask
+    public class DoDishesTask : HoldToCompleteTask
     {
         protected override void Done()
         {

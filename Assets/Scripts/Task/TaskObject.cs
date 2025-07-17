@@ -81,7 +81,7 @@ namespace DefaultNamespace
             FindFirstObjectByType<TimeManager>().AddMinutes(Details.MinutesAdded);
         }
 
-        protected void Notice()
+        protected virtual void Notice()
         {
             taskState = TaskState.Noticed;
             OnStateChanged?.Invoke(taskState);
@@ -89,7 +89,8 @@ namespace DefaultNamespace
             
             //outline
             var outline = GetComponentInParent<Outline>();
-            LeanTween.value(gameObject, (float v) => outline.OutlineWidth = v, 0f, 20f, 0.5f).setLoopPingPong(1);
+            if (outline)
+                LeanTween.value(gameObject, (float v) => outline.OutlineWidth = v, 0f, 20f, 0.5f).setLoopPingPong(1);
         } 
     }
 }
