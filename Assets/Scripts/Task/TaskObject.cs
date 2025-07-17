@@ -31,7 +31,7 @@ namespace DefaultNamespace
         {
             _list = FindFirstObjectByType<TaskList>();
             timeOfInteraction = Details.TimeToComplete;
-            interactionText = "Let's do this now";
+            interactionText = string.Empty == Details.InteractionText ? "Let's do this now" : Details.InteractionText;
         }
 
         public virtual void TryNotice()
