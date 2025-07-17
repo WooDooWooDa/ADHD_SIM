@@ -39,6 +39,7 @@ namespace DefaultNamespace
                 if (_interactable != null && _interactable.CanInteractWith())
                 {
                     _interactWidget.Show();
+                    _interactWidget.UpdateInteractText(_interactable.interactionText);
                 }
             }
             else

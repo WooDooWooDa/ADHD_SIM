@@ -7,5 +7,6 @@
         public string Description;
         public string Thoughts;
         public float TimeToComplete;
+        public float MinutesAdded;
     }
 }

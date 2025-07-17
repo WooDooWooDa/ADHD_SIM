@@ -9,6 +9,7 @@ namespace DefaultNamespace
         public TaskType taskType;
         public TaskPriority taskPriority;
         public float timeOfInteraction { get; set; }
+        public string interactionText { get; set; }
 
         public TaskState taskState
         {
@@ -30,6 +31,7 @@ namespace DefaultNamespace
         {
             _list = FindFirstObjectByType<TaskList>();
             timeOfInteraction = Details.TimeToComplete;
+            interactionText = "Let's do this now";
         }
 
         public virtual void TryNotice()
@@ -74,6 +76,9 @@ namespace DefaultNamespace
             var parts = Instantiate(Resources.Load<ParticleSystem>("ParticlesSystem/TaskCompleteParticleSystem"), transform);
             parts.Play();
             Destroy(parts.gameObject, 5);
+            
+            //Add time
+            FindFirstObjectByType<TimeManager>().AddMinutes(Details.MinutesAdded);
         }
 
         protected void Notice()
@@ -81,6 +86,10 @@ namespace DefaultNamespace
             taskState = TaskState.Noticed;
             OnStateChanged?.Invoke(taskState);
             _list.AddTaskToDo(this);
+            
+            //outline
+            var outline = GetComponentInParent<Outline>();
+            LeanTween.value(gameObject, (float v) => outline.OutlineWidth = v, 0f, 20f, 0.5f).setLoopPingPong(1);
         } 
     }
 }

@@ -12,10 +12,12 @@ namespace DefaultNamespace
         private FindObjectsTask _task;
         private TaskList _list;
         public float timeOfInteraction { get; set; }
+        public string interactionText { get; set; }
 
         private void Start()
         {
             timeOfInteraction = 1f;
+            interactionText = "Did I find the thing?";
         }
 
         public bool StartInteraction()
