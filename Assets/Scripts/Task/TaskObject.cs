@@ -98,7 +98,7 @@ namespace DefaultNamespace
             
             //Thoughts
             var widget = FindFirstObjectByType<ThoughtsWidget>(FindObjectsInactive.Include);
-            widget.ShowTextFor(Details.Thoughts, 5f);
+            widget.ShowTextFor("Me :\n" + Details.Thoughts, 5f);
         } 
     }
 }

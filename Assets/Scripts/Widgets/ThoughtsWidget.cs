@@ -16,6 +16,8 @@ public class ThoughtsWidget : Widget
 
     public void ShowTextFor(string text, float duration)
     {
+        if (_hiding != null) ForceOutAnimation();
+        
         thoughtsText.text = text;
         ShowFor(duration);
     }
@@ -23,7 +25,6 @@ public class ThoughtsWidget : Widget
     protected override void InAnimation()
     {
         base.InAnimation();
-        
         LeanTween.moveY(panelTransform, 75f, inOutAnimationTime);
     }
 
@@ -31,5 +32,11 @@ public class ThoughtsWidget : Widget
     {
         base.OutAnimation();
         LeanTween.moveY(panelTransform, -100f, inOutAnimationTime);
+    }
+
+    private void ForceOutAnimation()
+    {
+        Deactivate();
+        panelTransform.anchoredPosition = new Vector2(0f, -100f);
     }
 }

@@ -10,8 +10,8 @@ namespace DefaultNamespace.Widgets
         public float inOutAnimationTime = 0.1f; 
             
         protected bool _isVisible = true;
-        protected CanvasGroup _canvas;
-        private Coroutine _hiding;
+        private CanvasGroup _canvas;
+        protected Coroutine _hiding;
 
         protected virtual void Start()
         {

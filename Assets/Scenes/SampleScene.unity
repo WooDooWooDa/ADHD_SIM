@@ -11272,7 +11272,7 @@ MonoBehaviour:
   Details:
     Name: Take out the trash
     InteractionText: 
-    Thoughts: Me :\nOk! Focus! You only need to take out the trash
+    Thoughts: Ok! Focus! I only need to take out the trash
     TimeToComplete: 0
     MinutesAdded: 0
   taskType: 0
