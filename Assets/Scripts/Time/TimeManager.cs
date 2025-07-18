@@ -6,7 +6,7 @@ public class TimeManager : MonoBehaviour
     public float hour => _hour;
     public float minute => _minute;
     public string timeString => _hour.ToString("00") + "h" + _minute.ToString("00");
-    public bool timeIsTicking = true;
+    public bool timeIsTicking = false;
     public Action<float, float> TimeChanged;
     public Action<float> MinutesAdded;          
     
@@ -47,6 +47,8 @@ public class TimeManager : MonoBehaviour
 
     public void AddHours(float hours)
     {
+        if (hours <= 0) return;
+        
         _day += (hours / HourPerDay);
         _hour = Mathf.Floor((dayNormalized) * HourPerDay);
         TimeChanged?.Invoke(_hour, _minute);
@@ -55,6 +57,8 @@ public class TimeManager : MonoBehaviour
     
     public void AddMinutes(float minutes)
     {
+        if (minutes <= 0) return;
+        
         _day += ((minutes / MinutePerHour) / HourPerDay);
         _minute = Mathf.Floor((((dayNormalized) * HourPerDay) % 1f) * MinutePerHour);
         TimeChanged?.Invoke(_hour, _minute);

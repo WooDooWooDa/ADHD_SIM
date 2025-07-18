@@ -46,12 +46,6 @@ public class PlayerController : MonoBehaviour
         lookAction = InputSystem.actions.FindAction("Look");
     }
 
-    private void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
-
     private void Update()
     {
         Move();
@@ -90,6 +84,8 @@ public class PlayerController : MonoBehaviour
 
     private void Look()
     {
+        if (!_canMove) return;
+        
         _lookAmt = lookAction.ReadValue<Vector2>();
         _rotationX -= _lookAmt.y * lookSpeed;
         _rotationX = Mathf.Clamp(_rotationX, -_xRotationLimit, _xRotationLimit);

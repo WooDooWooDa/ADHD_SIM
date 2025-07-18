@@ -1,8 +1,9 @@
-﻿namespace DefaultNamespace.Type
+﻿    namespace DefaultNamespace.Type
 {
     public class StepsTask : TaskObject
     {
         public bool canInteract;    //set to true for first step
+        public bool noticeNext = false;
         public StepsTask nextTask;
 
         public override void TryNotice()
@@ -17,9 +18,13 @@
             Complete();
             
             //enable next step
-            if (nextTask is not null) nextTask.canInteract = true;
             canInteract = false;
-            //nextTask.Notice();            //maybe not
+            if (nextTask is not null)
+            {
+                nextTask.canInteract = true;
+                if (noticeNext)
+                    nextTask.Notice();
+            }
         }
 
         public override bool CanInteractWith()

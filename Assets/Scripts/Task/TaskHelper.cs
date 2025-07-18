@@ -13,6 +13,7 @@ namespace DefaultNamespace
         {
             return priority switch
             {
+                TaskPriority.Original => 0f,
                 TaskPriority.VeryLow or TaskPriority.Low => 0.25f,
                 TaskPriority.Medium or TaskPriority.High => 0.15f,
                 TaskPriority.VeryHigh => 0.1f,

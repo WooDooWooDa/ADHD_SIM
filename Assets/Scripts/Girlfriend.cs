@@ -18,14 +18,17 @@ namespace DefaultNamespace
         private TimeManager _timeManager;
         private ThoughtsWidget _thoughtsWidget;
         private AudioSource _audioSource;
+        private OriginalTask _originalTask;
 
         private void Awake()
         {
+            _originalTask = FindFirstObjectByType<OriginalTask>();
             _audioSource = GetComponent<AudioSource>();
-            _timeManager = FindObjectOfType<TimeManager>();    
+            _timeManager = FindFirstObjectByType<TimeManager>();    
             _timeManager.SetTimeOfDay(8f, 30f);
             _timeManager.TimeChanged += TimeChanged;
-            StartCoroutine(StartDay());
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         private void TimeChanged(float hours, float minutes)
@@ -38,26 +41,36 @@ namespace DefaultNamespace
             }
         }
 
-        private IEnumerator StartDay()
+        public IEnumerator StartDay()
         {
+            //Before
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            _timeManager.timeIsTicking = true;
             _thoughtsWidget = FindFirstObjectByType<ThoughtsWidget>(FindObjectsInactive.Include);
-            _thoughtsWidget.ShowTextFor("Girlfriend : \nDon't forget to take out the trash before I come from work at 16h00", timeBeforeDayStarts + 1f);
+            _thoughtsWidget.ShowTextFor("Girlfriend :\nDon't forget to take out the trash before I come from work at 16h00", timeBeforeDayStarts + 1f);
+            
             yield return new WaitForSeconds(timeBeforeDayStarts);
+            
+            //Day starting!
             FindFirstObjectByType<PlayerController>().canMove = true;
             FindFirstObjectByType<Noticer>().canDetect  = true;
+            _originalTask.TryNotice();
             dayIsActive = true;
         }
 
         private void EndDay()
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             dayIsActive = false;
             _timeManager.timeIsTicking = false;
             FindFirstObjectByType<PlayerController>().canMove = false;
             FindFirstObjectByType<Noticer>().canDetect = false;
             FindFirstObjectByType<InteractWith>().detectionDistance = 0f;
             FindFirstObjectByType<TaskListWidget>(FindObjectsInactive.Include).Hide();
-            var task = FindFirstObjectByType<OriginalTask>();
-            if (task.taskState == TaskState.Done)
+            
+            if (_originalTask.taskState == TaskState.Done)
             {
                 //Win
                 winStateWidget.winStateText.text = "YOU WIN!!";

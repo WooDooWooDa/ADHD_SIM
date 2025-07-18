@@ -8,6 +8,12 @@ public class ThoughtsWidget : Widget
     public RectTransform panelTransform;
     public TextMeshProUGUI thoughtsText;
 
+    protected override void Start()
+    {
+        base.Start();
+        Hide();
+    }
+
     public void ShowTextFor(string text, float duration)
     {
         thoughtsText.text = text;
