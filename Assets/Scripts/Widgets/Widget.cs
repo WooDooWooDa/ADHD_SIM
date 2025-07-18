@@ -9,7 +9,7 @@ namespace DefaultNamespace.Widgets
     {
         public float inOutAnimationTime = 0.1f; 
             
-        protected bool _isVisible;
+        protected bool _isVisible = true;
         private CanvasGroup _canvas;
         private Coroutine _hiding;
 

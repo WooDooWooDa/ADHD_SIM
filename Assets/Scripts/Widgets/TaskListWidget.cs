@@ -23,12 +23,12 @@ public class TaskListWidget : Widget
             Destroy(ListParentTransform.GetChild(i).gameObject);
         }
 
-        var first = true;
+        int j = 1;
         foreach (var taskObject in list)
         {
             var task = Instantiate(ListItemPrefab, ListParentTransform);
-            task.Init(taskObject, first);
-            first = false;
+            task.Init(taskObject, j);
+            j++;
         }
     }
 }

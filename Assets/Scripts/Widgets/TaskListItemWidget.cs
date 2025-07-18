@@ -6,21 +6,20 @@ using UnityEngine.UI;
 public class TaskListItemWidget : MonoBehaviour
 {
     public TextMeshProUGUI taskName;
-    public Image unCheckIcon;
     public TextMeshProUGUI taskName2;
     public Transform unDoneTransform;
     public Transform doneTransform;
+    public TextMeshProUGUI taskNumberText;
 
     public TaskObject TaskObject;
 
-    public void Init(TaskObject taskObject, bool first)
+    public void Init(TaskObject taskObject, int position)
     {
         TaskObject = taskObject;
         taskName.text = taskObject.Details.Name;
-        if (!first)
-        {
-            //set as not first/focus task
-        }
+        taskNumberText.text = position + ".";
+        if (position == 1)
+            taskNumberText.fontSize = 64;
         taskName2.text = taskObject.Details.Name;
         if (taskObject.taskState == TaskState.Done)
         {

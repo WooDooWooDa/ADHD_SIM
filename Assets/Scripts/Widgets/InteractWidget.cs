@@ -27,8 +27,8 @@ public class InteractWidget : Widget
     {
         base.Start();
         //Hide it first!
-        _isVisible = true;
-        Hide();
+        gameObject.SetActive(false);
+        _isVisible = false;
     }
 
     public void UpdateInteractText(string text)

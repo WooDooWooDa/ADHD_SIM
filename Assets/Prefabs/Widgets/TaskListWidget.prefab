@@ -321,6 +321,7 @@ GameObject:
   - component: {fileID: 2011535198541987354}
   - component: {fileID: 2607906081980310343}
   - component: {fileID: 997219653905068483}
+  - component: {fileID: 3915335240850428587}
   m_Layer: 6
   m_Name: TaskListWidget
   m_TagString: Untagged
@@ -423,8 +424,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7bec10fc6e6494498ddce2359e9bcd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inOutAnimationTime: 0.1
   ListItemPrefab: {fileID: 5727465175192408956, guid: 01ec135e406a30c458c53ffe3ad0d510, type: 3}
   ListParentTransform: {fileID: 8033757850491556471}
+--- !u!225 &3915335240850428587
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7120675433705065296}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &215858307448154382
 PrefabInstance:
   m_ObjectHideFlags: 0
