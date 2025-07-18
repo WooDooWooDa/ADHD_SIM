@@ -16,6 +16,8 @@ namespace DefaultNamespace
 
         public float timeOfInteraction { get; set; }
         public string interactionText { get; set; }
+        //Unused
+        public AudioClip interactSound { get; set; } 
 
         private void Awake()
         {

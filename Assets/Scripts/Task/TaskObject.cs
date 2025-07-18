@@ -11,6 +11,7 @@ namespace DefaultNamespace
         public TaskPriority taskPriority;
         public float timeOfInteraction { get; set; }
         public string interactionText { get; set; }
+        public AudioClip interactSound { get; set; }
 
         public TaskState taskState
         {
@@ -32,6 +33,7 @@ namespace DefaultNamespace
         {
             _list = FindFirstObjectByType<TaskList>();
             timeOfInteraction = Details.TimeToComplete;
+            interactSound = Details.InteractSound;
             interactionText = string.Empty == Details.InteractionText ? "Let's do this now" : Details.InteractionText;
         }
 

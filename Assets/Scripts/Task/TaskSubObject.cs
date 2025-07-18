@@ -14,6 +14,7 @@ namespace DefaultNamespace
         private TaskList _list;
         public float timeOfInteraction { get; set; }
         public string interactionText { get; set; }
+        public AudioClip interactSound { get; set; }
 
         private void Start()
         {

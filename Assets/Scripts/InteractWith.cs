@@ -2,6 +2,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace DefaultNamespace
 {
@@ -9,6 +10,7 @@ namespace DefaultNamespace
     {
         public new Camera camera;
         public float detectionDistance = 2f;
+        public AudioSource interactionSource;
 
         private InputAction _interactAction;
         private IInteractable _interactable;
@@ -56,12 +58,16 @@ namespace DefaultNamespace
 
         private void CancelInteract(InputAction.CallbackContext callbackContext)
         {
-            _interactWidget.isInteracting = false;
+            StopInteract();
             if (_interactCoroutine != null) StopCoroutine(_interactCoroutine);
         }
 
         private IEnumerator Interaction(float time)
         {
+            if (!interactionSource.isPlaying && _interactable.interactSound is not null)
+            {
+                interactionSource.PlayOneShot(_interactable.interactSound);
+            }
             if (time == 0f)
             {
                 _interactable?.Interact();
@@ -83,6 +89,7 @@ namespace DefaultNamespace
 
         private void StopInteract()
         {
+            interactionSource.Stop();
             _interactable = null;
             _interactWidget.Hide();
             _interactWidget.isInteracting = false;

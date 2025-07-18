@@ -1,4 +1,6 @@
-﻿namespace DefaultNamespace
+﻿using UnityEngine;
+
+namespace DefaultNamespace
 {
     [System.Serializable]
     public struct TaskDetails
@@ -8,5 +10,6 @@
         public string Thoughts;
         public float TimeToComplete;
         public float MinutesAdded;
+        public AudioClip InteractSound;
     }
 }
