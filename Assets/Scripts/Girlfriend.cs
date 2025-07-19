@@ -53,6 +53,7 @@ namespace DefaultNamespace
             yield return new WaitForSeconds(timeBeforeDayStarts);
             
             //Day starting!
+            FindFirstObjectByType<TaskListWidget>(FindObjectsInactive.Include).Show();
             FindFirstObjectByType<PlayerController>().canMove = true;
             FindFirstObjectByType<Noticer>().canDetect  = true;
             _originalTask.TryNotice();

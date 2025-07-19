@@ -15,6 +15,12 @@ public class TaskListWidget : Widget
         _list = FindFirstObjectByType<TaskList>();
         _list.OnListUpdated += OnListUpdated;
     }
+    
+    protected override void Start()
+    {
+        base.Start();
+        Hide();
+    }
 
     private void OnListUpdated(List<TaskObject> list)
     {

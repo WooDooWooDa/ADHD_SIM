@@ -7,10 +7,11 @@ namespace DefaultNamespace.Widgets
     [RequireComponent(typeof(CanvasGroup))]
     public class Widget : MonoBehaviour
     {
+        public bool isVisible => _isVisible;
         public float inOutAnimationTime = 0.1f; 
             
         protected bool _isVisible = true;
-        private CanvasGroup _canvas;
+        protected CanvasGroup _canvas;
         protected Coroutine _hiding;
 
         protected virtual void Start()
@@ -32,7 +33,7 @@ namespace DefaultNamespace.Widgets
             Hide();
         }
 
-        public void Show()
+        public virtual void Show()
         {
             if (_isVisible) return;
             
@@ -41,7 +42,7 @@ namespace DefaultNamespace.Widgets
             InAnimation();
         }
         
-        public void Hide()
+        public virtual void Hide()
         {
             if (!_isVisible) return;
             

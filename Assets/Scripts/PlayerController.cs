@@ -1,4 +1,5 @@
 using System;
+using DefaultNamespace.Widgets;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
@@ -21,15 +22,17 @@ public class PlayerController : MonoBehaviour
     public float speed = 5f;
     public float lookSpeed = 0.1f;
 
-    private InputAction moveAction;
-    private InputAction lookAction;
+    private InputAction _moveAction;
+    private InputAction _lookAction;
+    private InputAction _pauseAction;
 
     private Vector3 _moveDirection = Vector3.zero;
     private Vector3 _lookAmt;
     private float _rotationX = 0;
     private float _xRotationLimit = 85f;
     private bool _canMove = false;
-    
+    private PauseWidget _pauseWidget;
+
     public void OnEnable()
     {
         actionAsset.FindActionMap("Player").Enable();
@@ -42,8 +45,20 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        moveAction = InputSystem.actions.FindAction("Move");
-        lookAction = InputSystem.actions.FindAction("Look");
+        _moveAction = InputSystem.actions.FindAction("Move");
+        _lookAction = InputSystem.actions.FindAction("Look");
+        _pauseWidget = FindFirstObjectByType<PauseWidget>();
+        _pauseWidget.player = this;
+        _pauseAction = InputSystem.actions.FindAction("Pause");
+        _pauseAction.performed += OnPauseAction;
+    }
+
+    private void OnPauseAction(InputAction.CallbackContext obj)
+    {
+        if (!_pauseWidget.isVisible) 
+            _pauseWidget.Show();
+        else
+            _pauseWidget.Hide();
     }
 
     private void Update()
@@ -54,7 +69,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        _moveDirection = moveAction.ReadValue<Vector2>();
+        _moveDirection = _moveAction.ReadValue<Vector2>();
         if (!_canMove) return;
         
         var forward = transform.forward;
@@ -86,7 +101,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!_canMove) return;
         
-        _lookAmt = lookAction.ReadValue<Vector2>();
+        _lookAmt = _lookAction.ReadValue<Vector2>();
         _rotationX -= _lookAmt.y * lookSpeed;
         _rotationX = Mathf.Clamp(_rotationX, -_xRotationLimit, _xRotationLimit);
         PlayerCamera.transform.localRotation = Quaternion.Euler(_rotationX, 0, 0);
