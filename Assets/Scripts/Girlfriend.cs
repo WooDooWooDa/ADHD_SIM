@@ -13,6 +13,7 @@ namespace DefaultNamespace
         public AudioClip WinClip;
         public AudioClip LoseClip;
         public WinStateWidget winStateWidget;
+        public AudioSource musicSource;
         
         public bool dayIsActive;
         private TimeManager _timeManager;
@@ -44,6 +45,7 @@ namespace DefaultNamespace
         public IEnumerator StartDay()
         {
             //Before
+            musicSource.Play();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             _timeManager.timeIsTicking = true;
