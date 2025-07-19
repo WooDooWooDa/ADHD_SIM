@@ -14369,6 +14369,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Phone
       objectReference: {fileID: 0}
+    - target: {fileID: 6193104090578885312, guid: 82f42044b561b524a9c514af48ba3458, type: 3}
+      propertyPath: Details.TimeToComplete
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
