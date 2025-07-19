@@ -37,7 +37,8 @@ namespace DefaultNamespace.Widgets
             timeAddedText.text = $"+{minutes}m";
             timeAddedText.alpha = 1f;
             timeAddedText.color = Color.white;
-            timeAddedText.rectTransform.anchoredPosition = new Vector2(683.5f, -243.5f);
+            var from = new Vector3(452.5f, -217.5f, 1f);
+            timeAddedText.rectTransform.anchoredPosition = from;
             
             //Scale up tween
             LeanTween.scale(timeAddedText.rectTransform, Vector2.one * 3f, 0.35f).setLoopPingPong(1)
@@ -47,7 +48,8 @@ namespace DefaultNamespace.Widgets
                     LeanTween.value(timeAddedText.gameObject, (Vector3 v) =>
                     {
                         timeAddedText.rectTransform.anchoredPosition = v;
-                    }, new Vector2(683.5f, -243.5f), new Vector2(95f, -12.5f), 0.25f).setDelay(0.5f);
+                        timeAddedText.alpha = v.z;
+                    }, from, new Vector3(95f, -12.5f, 0f), 0.25f).setDelay(0.5f);
                     /*.setOnComplete(() =>
                     {
                         timeAddedText.color = new Color(100f, 38f, 25f, 1f);

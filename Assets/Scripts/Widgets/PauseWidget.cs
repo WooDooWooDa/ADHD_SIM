@@ -26,6 +26,8 @@ namespace DefaultNamespace.Widgets
 
         public override void Show()
         {
+            if (!FindFirstObjectByType<Girlfriend>().dayIsActive) return;
+            
             base.Show();
             player.canMove = false;
             Cursor.lockState = CursorLockMode.None;
