@@ -48,7 +48,7 @@ namespace DefaultNamespace
             Cursor.visible = false;
             _timeManager.timeIsTicking = true;
             _thoughtsWidget = FindFirstObjectByType<ThoughtsWidget>(FindObjectsInactive.Include);
-            _thoughtsWidget.ShowTextFor("Girlfriend :\nDon't forget to take out the trash before I come from work at 16h00", timeBeforeDayStarts + 1f);
+            _thoughtsWidget.ShowTextFor("Partner :\nDon't forget to take out the trash before I come from work at 16h00", timeBeforeDayStarts + 1f);
             
             yield return new WaitForSeconds(timeBeforeDayStarts);
             
@@ -75,7 +75,7 @@ namespace DefaultNamespace
                 //Win
                 winStateWidget.winStateText.text = "YOU WIN!!";
                 _audioSource.clip = WinClip;
-                _thoughtsWidget.ShowTextFor("Girlfriend : \nNice! Thank you my love, you remembered to take out the trash!", 100f);
+                _thoughtsWidget.ShowTextFor("Partner : \nNice! Thank you my love, you remembered to take out the trash!", 100f);
                 _audioSource.Play();
             }
             else
@@ -83,7 +83,7 @@ namespace DefaultNamespace
                 //Lose
                 winStateWidget.winStateText.text = "YOU LOSE...";
                 _audioSource.clip = LoseClip;
-                _thoughtsWidget.ShowTextFor("Girlfriend : \nLove!! You forgot the only thing I asked you before leaving!", 100f);
+                _thoughtsWidget.ShowTextFor("Partner : \nLove!! You forgot the only thing I asked you before leaving!", 100f);
                 _audioSource.Play();
             }
             winStateWidget.Show();

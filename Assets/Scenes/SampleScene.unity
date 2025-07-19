@@ -11008,6 +11008,7 @@ MonoBehaviour:
     Thoughts: Ok! Focus! I only need to take out the trash
     TimeToComplete: 0
     MinutesAdded: 0
+    InteractSound: {fileID: 0}
   taskType: 0
   taskPriority: 5
 --- !u!4 &1778920467
@@ -13014,6 +13015,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4412449251673770109, guid: 2b3a8724efd83a94781256c9e9327a09, type: 3}
+      propertyPath: Details.InteractSound
+      value: 
+      objectReference: {fileID: 8300000, guid: eda1fc61e0a47814fbaddb57d8a1e801, type: 3}
+    - target: {fileID: 4412449251673770109, guid: 2b3a8724efd83a94781256c9e9327a09, type: 3}
       propertyPath: Details.InteractionText
       value: Put away
       objectReference: {fileID: 0}
@@ -13219,6 +13224,103 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!82 &543450652492973065
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137323386}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 05b3166360706294f856724a73d6131b, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: ac53e4347bd97b04cb1ce1050b994465, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1.49
+  MinDistance: 0
+  MaxDistance: 8
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.44152832
+      value: 0.99648666
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -2.3048203
+      outSlope: -2.3048203
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.09829075
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &543450652499653410 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8419730048939537127, guid: 2b3a8724efd83a94781256c9e9327a09, type: 3}
@@ -13366,6 +13468,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1285451499229995666, guid: 6f4af96714a365148b328a5e7f547e8d, type: 3}
+      propertyPath: Details.InteractSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f1ba906ceab6ea043b6853918226adeb, type: 3}
+    - target: {fileID: 1285451499229995666, guid: 6f4af96714a365148b328a5e7f547e8d, type: 3}
       propertyPath: Details.InteractionText
       value: Refill
       objectReference: {fileID: 0}
@@ -13435,7 +13541,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4965797266653644123, guid: 6f4af96714a365148b328a5e7f547e8d, type: 3}
       propertyPath: m_Volume
-      value: 0.05
+      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: 4965797266653644123, guid: 6f4af96714a365148b328a5e7f547e8d, type: 3}
       propertyPath: m_Resource
@@ -14087,6 +14193,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3062924389816367481, guid: ddf73af9706acc743a2731a1f42cbfa3, type: 3}
+      propertyPath: Details.InteractSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 0366299ed62a23945a2e1d3106ad04fb, type: 3}
+    - target: {fileID: 3062924389816367481, guid: ddf73af9706acc743a2731a1f42cbfa3, type: 3}
       propertyPath: Details.InteractionText
       value: Close the drawer
       objectReference: {fileID: 0}
@@ -14538,9 +14648,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24300002, guid: 05b3166360706294f856724a73d6131b, type: 2}
     - target: {fileID: 6137406708340696433, guid: 84d9a0e3e81f219409ffc86b189e6198, type: 3}
+      propertyPath: acOnSource
+      value: 
+      objectReference: {fileID: 543450652492973065}
+    - target: {fileID: 6137406708340696433, guid: 84d9a0e3e81f219409ffc86b189e6198, type: 3}
       propertyPath: Details.Thoughts
       value: It's pretty hot in here, I could turn the AC on
       objectReference: {fileID: 0}
+    - target: {fileID: 6137406708340696433, guid: 84d9a0e3e81f219409ffc86b189e6198, type: 3}
+      propertyPath: Details.InteractSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 79a2a583ed1ca6241a9115389cdf9462, type: 3}
     - target: {fileID: 6137406708340696433, guid: 84d9a0e3e81f219409ffc86b189e6198, type: 3}
       propertyPath: Details.InteractionText
       value: Turn on the AC
@@ -14552,6 +14670,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5302589015485622558, guid: 84d9a0e3e81f219409ffc86b189e6198, type: 3}
       insertIndex: -1
       addedObject: {fileID: 543450652492973064}
+    - targetCorrespondingSourceObject: {fileID: 5302589015485622558, guid: 84d9a0e3e81f219409ffc86b189e6198, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 543450652492973065}
   m_SourcePrefab: {fileID: 100100000, guid: 84d9a0e3e81f219409ffc86b189e6198, type: 3}
 --- !u!1 &5358902317916937263
 GameObject:
@@ -15778,6 +15899,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24300002, guid: 05b3166360706294f856724a73d6131b, type: 2}
     - target: {fileID: 621598591176409212, guid: b44c82892c371bd4ea727a476437e96b, type: 3}
+      propertyPath: Details.InteractSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8bc2913b2ac9c6342a12f257ea9fe820, type: 3}
+    - target: {fileID: 621598591176409212, guid: b44c82892c371bd4ea727a476437e96b, type: 3}
       propertyPath: Details.InteractionText
       value: Clean up
       objectReference: {fileID: 0}
@@ -15900,6 +16025,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 188.839
       objectReference: {fileID: 0}
+    - target: {fileID: 8015271710795960369, guid: be2e9cc57e431564bbac418163674dae, type: 3}
+      propertyPath: Details.InteractSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8349e276aa3dd6548b08cf4b26094707, type: 3}
+    - target: {fileID: 8015271710795960369, guid: be2e9cc57e431564bbac418163674dae, type: 3}
+      propertyPath: Details.TimeToComplete
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15919,6 +16052,22 @@ PrefabInstance:
     - target: {fileID: 1253763982984369093, guid: dbb4be68578762143b5ffd8a31711999, type: 3}
       propertyPath: m_Name
       value: Tablet
+      objectReference: {fileID: 0}
+    - target: {fileID: 5665135320694877099, guid: dbb4be68578762143b5ffd8a31711999, type: 3}
+      propertyPath: Details.Name
+      value: Watch anime
+      objectReference: {fileID: 0}
+    - target: {fileID: 5665135320694877099, guid: dbb4be68578762143b5ffd8a31711999, type: 3}
+      propertyPath: Details.Thoughts
+      value: I could continue this anime I started earlier
+      objectReference: {fileID: 0}
+    - target: {fileID: 5665135320694877099, guid: dbb4be68578762143b5ffd8a31711999, type: 3}
+      propertyPath: Details.InteractSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2f579443e11b46444b81a6b21fa6588d, type: 3}
+    - target: {fileID: 5665135320694877099, guid: dbb4be68578762143b5ffd8a31711999, type: 3}
+      propertyPath: Details.TimeToComplete
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7978960657711296711, guid: dbb4be68578762143b5ffd8a31711999, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16233,6 +16382,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 653940168}
     m_Modifications:
     - target: {fileID: 1777066899094112008, guid: 0f0793f220be6d34b90381e4560ec4bf, type: 3}
+      propertyPath: Details.MinutesAdded
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777066899094112008, guid: 0f0793f220be6d34b90381e4560ec4bf, type: 3}
+      propertyPath: Details.InteractSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2b18f6edc15535d48ab8316d2b5cfd7e, type: 3}
+    - target: {fileID: 1777066899094112008, guid: 0f0793f220be6d34b90381e4560ec4bf, type: 3}
+      propertyPath: Details.TimeToComplete
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777066899094112008, guid: 0f0793f220be6d34b90381e4560ec4bf, type: 3}
       propertyPath: Details.InteractionText
       value: Verify the safe
       objectReference: {fileID: 0}
@@ -16325,9 +16486,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 653940168}
     m_Modifications:
+    - target: {fileID: 6090627311198234995, guid: 077b0e9521029044bbf4d861399acc73, type: 3}
+      propertyPath: Details.TimeToComplete
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6709480564492361617, guid: 077b0e9521029044bbf4d861399acc73, type: 3}
       propertyPath: m_Name
       value: Kettle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877264841676960868, guid: 077b0e9521029044bbf4d861399acc73, type: 3}
+      propertyPath: Details.MinutesAdded
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877264841676960868, guid: 077b0e9521029044bbf4d861399acc73, type: 3}
+      propertyPath: Details.InteractSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4084648cc220bd04ba93ba6aa979079f, type: 3}
+    - target: {fileID: 7877264841676960868, guid: 077b0e9521029044bbf4d861399acc73, type: 3}
+      propertyPath: Details.TimeToComplete
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8161009726496679179, guid: 077b0e9521029044bbf4d861399acc73, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16389,6 +16566,14 @@ PrefabInstance:
     - target: {fileID: 5198278172149333159, guid: b66e20f4f2eea4445a89562faa96ba47, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5500916862636495043, guid: b66e20f4f2eea4445a89562faa96ba47, type: 3}
+      propertyPath: Details.InteractSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d106dd30bbb696e488c51a8c0b141c46, type: 3}
+    - target: {fileID: 5500916862636495043, guid: b66e20f4f2eea4445a89562faa96ba47, type: 3}
+      propertyPath: Details.TimeToComplete
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7075129827089171373, guid: b66e20f4f2eea4445a89562faa96ba47, type: 3}
       propertyPath: m_Volume
@@ -16525,7 +16710,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8786160802865085734, guid: f3b133cc3cdfaf84ebe7170d836af3fe, type: 3}
       propertyPath: Details.MinutesAdded
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8786160802865085734, guid: f3b133cc3cdfaf84ebe7170d836af3fe, type: 3}
+      propertyPath: Details.InteractSound
+      value: 
+      objectReference: {fileID: 8300000, guid: eda1fc61e0a47814fbaddb57d8a1e801, type: 3}
+    - target: {fileID: 8786160802865085734, guid: f3b133cc3cdfaf84ebe7170d836af3fe, type: 3}
+      propertyPath: Details.TimeToComplete
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8786160802865085734, guid: f3b133cc3cdfaf84ebe7170d836af3fe, type: 3}
       propertyPath: Details.InteractionText
