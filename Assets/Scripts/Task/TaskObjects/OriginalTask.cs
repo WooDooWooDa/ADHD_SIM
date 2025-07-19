@@ -7,6 +7,7 @@ namespace DefaultNamespace
     {
         protected override void Done()
         {
+            transform.position = FindFirstObjectByType<PlayerController>().transform.position;
             base.Done();
             
             FindFirstObjectByType<Girlfriend>().EndDay();
