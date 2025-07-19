@@ -22,6 +22,7 @@ namespace DefaultNamespace
                 OnStateChanged?.Invoke(value);
             }
         }
+        public bool IsFocusTask => _list.IfFocusTask(this);
         private TaskState _state;
         public Action<TaskState> OnStateChanged;
         public Action<TaskObject> OnDone;
@@ -70,7 +71,7 @@ namespace DefaultNamespace
 
         public virtual bool CanInteractWith()
         {
-            return _state is (TaskState.UnDone) && _list.IfFocusTask(this);
+            return _state is (TaskState.UnDone) && IsFocusTask;
         }
 
         protected virtual void Done()

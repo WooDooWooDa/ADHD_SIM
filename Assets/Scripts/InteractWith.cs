@@ -17,7 +17,8 @@ namespace DefaultNamespace
         private Coroutine _interactCoroutine;
         
         private InteractWidget _interactWidget;
-        
+        private ThoughtsWidget _thoughtsWidget;
+
         private void Awake()
         {
             _interactAction = InputSystem.actions.FindAction("Interact");
@@ -25,6 +26,7 @@ namespace DefaultNamespace
             _interactAction.canceled += CancelInteract;
             
             _interactWidget  = FindFirstObjectByType<InteractWidget>();
+            _thoughtsWidget  = FindFirstObjectByType<ThoughtsWidget>();
         }
 
         void Update()
@@ -54,6 +56,11 @@ namespace DefaultNamespace
         {
             if (_interactable is not null && _interactable.CanInteractWith() && _interactable.StartInteraction())
                 _interactCoroutine = StartCoroutine(Interaction(_interactable.timeOfInteraction));
+            
+            if (_interactable is TaskObject task && !task.IsFocusTask)
+            {
+                _thoughtsWidget.ShowTextFor("Me :\nI'll do this later", 2f);
+            }
         }
 
         private void CancelInteract(InputAction.CallbackContext callbackContext)

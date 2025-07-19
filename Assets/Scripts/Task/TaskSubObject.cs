@@ -45,6 +45,7 @@ namespace DefaultNamespace
             _task = findObjectsTask;
             interactionText = _task.interactionText;
             interactSound = _task.interactSound;
+            timeOfInteraction = _task.timeOfInteraction;
             _list = FindFirstObjectByType<TaskList>();
             _subObjectFound += findObjectsTask.SubObjectFound;
         }

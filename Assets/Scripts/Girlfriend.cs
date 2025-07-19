@@ -48,7 +48,7 @@ namespace DefaultNamespace
             Cursor.visible = false;
             _timeManager.timeIsTicking = true;
             _thoughtsWidget = FindFirstObjectByType<ThoughtsWidget>(FindObjectsInactive.Include);
-            _thoughtsWidget.ShowTextFor("Partner :\nDon't forget to take out the trash before I come from work at 16h00", timeBeforeDayStarts + 1f);
+            _thoughtsWidget.ShowTextFor("Partner :\nDon't forget to empty all trashcans before I come from work at 16h00", timeBeforeDayStarts + 1f);
             
             yield return new WaitForSeconds(timeBeforeDayStarts);
             
@@ -60,7 +60,7 @@ namespace DefaultNamespace
             dayIsActive = true;
         }
 
-        private void EndDay()
+        public void EndDay()
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
