@@ -4302,7 +4302,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7fa26191dce0cb6479a101f062b3f2e9, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14285,9 +14285,9 @@ GameObject:
   - component: {fileID: 543450651852971002}
   - component: {fileID: 3469287837984724063}
   - component: {fileID: 1711813855266037909}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: PutTowelOnRackTask
-  m_TagString: TaskObject
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14334,7 +14334,7 @@ GameObject:
   - component: {fileID: 543450653570316324}
   - component: {fileID: 3469287837353654145}
   - component: {fileID: 1711813855775867723}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Towel Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16015,8 +16015,28 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 20831777749364332, guid: f619fb04bb8f64b42aa99ea13f59c905, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20831777749364332, guid: f619fb04bb8f64b42aa99ea13f59c905, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2802617268166665133, guid: f619fb04bb8f64b42aa99ea13f59c905, type: 3}
       propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3985571355178235822, guid: f619fb04bb8f64b42aa99ea13f59c905, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3985571355178235822, guid: f619fb04bb8f64b42aa99ea13f59c905, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3985571355178235822, guid: f619fb04bb8f64b42aa99ea13f59c905, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4223813967775767574, guid: f619fb04bb8f64b42aa99ea13f59c905, type: 3}
@@ -16090,6 +16110,10 @@ PrefabInstance:
     - target: {fileID: 6728938701455516547, guid: f619fb04bb8f64b42aa99ea13f59c905, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969255943177106087, guid: f619fb04bb8f64b42aa99ea13f59c905, type: 3}
+      propertyPath: lookSpeed
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16843,9 +16867,9 @@ GameObject:
   - component: {fileID: 6539129151920104420}
   - component: {fileID: 4198507141411262748}
   - component: {fileID: 971197999}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Washing machine
-  m_TagString: TaskObject
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
