@@ -22,17 +22,17 @@ namespace DefaultNamespace
                 OnStateChanged?.Invoke(value);
             }
         }
-        public bool IsFocusTask => _list.IfFocusTask(this);
+        public bool IsFocusTask => list.IfFocusTask(this);
         private TaskState _state;
         public Action<TaskState> OnStateChanged;
         public Action<TaskObject> OnDone;
         
         private float _noticedTime;
-        private TaskList _list;
+        protected TaskList list;
 
         private void Awake()
         {
-            _list = FindFirstObjectByType<TaskList>();
+            list = FindFirstObjectByType<TaskList>();
             timeOfInteraction = Details.TimeToComplete;
             interactSound = Details.InteractSound;
             interactionText = string.Empty == Details.InteractionText ? "Let's do this now" : Details.InteractionText;
@@ -92,7 +92,7 @@ namespace DefaultNamespace
         {
             taskState = TaskState.Noticed;
             OnStateChanged?.Invoke(taskState);
-            _list.AddTaskToDo(this);
+            list.AddTaskToDo(this);
             
             //outline
             var outline = GetComponentInParent<Outline>();

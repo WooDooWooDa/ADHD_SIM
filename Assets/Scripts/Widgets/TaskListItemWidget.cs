@@ -1,4 +1,6 @@
+using System.Linq;
 using DefaultNamespace;
+using DefaultNamespace.Type;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,6 +27,13 @@ public class TaskListItemWidget : MonoBehaviour
         {
             doneTransform.gameObject.SetActive(true);
             unDoneTransform.gameObject.SetActive(false);
+        }
+        else
+        {
+            if (taskObject is FindObjectsTask task)
+            {
+                taskName.text = taskObject.Details.Name + $" ({task.SubObjects.Count(t => t.objectFound)}/{task.SubObjects.Count})";
+            }
         }
     }
 }

@@ -29,6 +29,7 @@ namespace DefaultNamespace.Type
 
         public void SubObjectFound()
         {
+            list.OnListUpdated(list.ToDoTasks);
             foreach (var subObject in SubObjects)
             {
                 if (!subObject.objectFound) return;
