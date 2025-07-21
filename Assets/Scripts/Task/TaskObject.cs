@@ -29,10 +29,12 @@ namespace DefaultNamespace
         
         private float _noticedTime;
         protected TaskList list;
+        protected AudioSource taskDoneSource;
 
         private void Awake()
         {
             list = FindFirstObjectByType<TaskList>();
+            taskDoneSource = GetComponent<AudioSource>();
             timeOfInteraction = Details.TimeToComplete;
             interactSound = Details.InteractSound;
             interactionText = string.Empty == Details.InteractionText ? "Let's do this now" : Details.InteractionText;
@@ -85,7 +87,7 @@ namespace DefaultNamespace
             FindFirstObjectByType<TimeManager>().AddMinutes(Details.MinutesAdded);
             
             //Play sound
-            GetComponent<AudioSource>().Play();
+            taskDoneSource.Play();
         }
 
         protected virtual void Notice()

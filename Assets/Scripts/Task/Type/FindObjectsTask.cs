@@ -32,7 +32,11 @@ namespace DefaultNamespace.Type
             list.OnListUpdated(list.ToDoTasks);
             foreach (var subObject in SubObjects)
             {
-                if (!subObject.objectFound) return;
+                if (!subObject.objectFound)
+                {
+                    taskDoneSource.Play();
+                    return;
+                }
             }
             //Complete task when all subobject found
             Complete();

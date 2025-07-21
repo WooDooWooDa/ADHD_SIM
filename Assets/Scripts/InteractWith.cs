@@ -57,7 +57,7 @@ namespace DefaultNamespace
             if (_interactable is not null && _interactable.CanInteractWith() && _interactable.StartInteraction())
                 _interactCoroutine = StartCoroutine(Interaction(_interactable.timeOfInteraction));
             
-            if (_interactable is TaskObject task && !task.IsFocusTask)
+            if (_interactable is TaskObject task && task.taskState != TaskState.Done && !task.IsFocusTask)
             {
                 _thoughtsWidget.ShowTextFor("Me :\nI'll do this later", 2f);
             }
